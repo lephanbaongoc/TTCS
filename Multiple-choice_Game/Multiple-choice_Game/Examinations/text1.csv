@@ -1,0 +1,10 @@
+﻿1;Ngôn ngữ lập trình C được Dennish phát triển dựa trên ngôn ngữ lập trình nào?;~Ngôn ngữ DEC PDP;~Ngôn ngữ BCPL;^Ngôn ngữ B và BCPL;~Ngôn ngữ B
+2;Việc biên dịch một chương trình viết bằng ngôn ngữ lập trình bậc cao sang chương trình dưới dạng ngôn ngữ máy được thực hiện bởi;~Hệ điều hành;~Chương trình soạn thảo;~Người lập trình;^Chương trình dịch
+3;Ngôn ngữ lập trình nào dưới đây là ngôn ngữ lập trình có cấu trúc?;~Ngôn ngữ Cobol;~Ngôn ngữ Assembler;^Ngôn ngữ C và Pascal;~!Tất cả các ý trên
+4;Ngôn ngữ lập trình dùng để;~Soạn thảo văn bản;^Viết chương trình;~Tính toán khoa học;~Dịch chương trình nguồn sang chương trình đích
+5;Phát biểu nào sau đây về ngôn ngữ C là đúng?;~C là hợp ngữ;~Ngôn ngữ C hiện nay chỉ tồn tại với 1 phiên bản duy nhất;~Máy tính có thể hiểu trực tiếp ngôn ngữ C;^Trình biên dịch sẽ dịch ngôn ngữ C thành mã máy
+6;Khẳng định nào sau đây về ngôn ngữ lập trình là đúng;~Máy tính có thể chạy một chương trình viết bằng ngôn ngữ Assembly;^Để chạy một chương trình viết bằng ngôn ngữ máy thì trước hết ta phải biên dịch;~Để chạy chương trình viết bằng ngôn ngữ lập trình bậc cao trước hết cần biên dịch hoặc thông dịch chương trình;~!Tất cả khẳng định trên là đúng
+7;Ngôn ngữ lập trình được Dennish đưa ra vào năm nào?;~1967;~1976;~1970;^1972
+8;Ngôn ngữ lập trình C được xếp vào loại ngôn ngữ lập trình nào?;~Ngôn ngữ máy;^Ngôn ngữ lập trình bậc cao;~Hợp ngữ;~Ngôn ngữ lập trình logic
+9;Trong những thành phần sau, chỉ ra một thành phần KHÔNG thuộc dãy?;~Ngôn ngữ bậc cao;^Ngôn ngữ cấp trung;~Ngôn ngữ máy;~Hợp ngữ
+10;Ai là người sáng lập ra ngôn ngữ C?;~James Gosling;~Martin Richard;^Dennis Ritchie;~James Rumbaugh

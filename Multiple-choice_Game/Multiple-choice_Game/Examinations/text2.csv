@@ -1,0 +1,10 @@
+﻿1;Chọn khẳng định ĐÚNG khi nói về từ khóa trong C?;~Tất cả từ khóa trong C đều bắt đầu bằng chữ cái hoa;~Tất cả từ khóa trong C đều không phân biệt chữ hoa chữ thường;~Tất cả từ khóa trong C đều viết bằng chữ cái hoa;^Tất cả từ khóa trong C đều viết bằng chữ cái thường
+2;Đâu là cặp kí hiệu dùng để bắt đầu và kết thúc một khối lệnh trong ngôn ngữ lập trình C?;^{};~[];~&lt;&gt;^()
+3;Đâu là một khẳng định SAI?;^Không thể lồng khối lệnh này trong khối lệnh khác;~Không đặt (dấu chấm phẩy) sau dấu ngoặc nhọn kết thúc;~Khối lệnh là một dãy các câu lệnh đặt trong dấu ngoặc nhọn {};~Khối lệnh tương đương với câu lệnh riêng lẻ về mặt cú pháp
+4;Phần nào sẽ thông báo cho chương trình dịch biết chương trình có sử dụng những thư viện nào?;~Phần nội dung của các hàm đã khai báo;~Phần khai báo các biến toàn cục;~Phần khai báo các nguyên mẫu hàm;^Phần khai báo tệp tiêu đề
+5;Chú thích (comment) được đặt giữa cặp dấu nào có thể viêt trên nhiều dòng trong C?;~/*, /*;^/*, */;~[*, *];~*/, /*
+6;Điều gì KHÔNG đúng với hàm main();~Hàm main() được gọi tự động khi chương trình khởi động;~Hàm main() là duy nhất trong 1 chương trình;^Hàm main() không thể có tham số truyền vào;~!Hàm main() là hàm bắt buộc trong mỗi chương trình
+7;Đâu KHÔNG phải là cách khai báo tên biến hợp lệ?;~int _3a;^int 3_a;~int _a3;~int a_3
+8;Tên nào sau đây KHÔNG thể là tên biến trong C?;~true;^default;~friend;~export
+9;Đâu là một định danh hợp lệ?;^_soluong;~so luong;~1_soluong;~int
+10;Trong định danh KHÔNG được bắt đầu bằng ký tự nào?;~chữ cái hoa;^dấu gạch dưới “_”;~chữ số;~chữ cái thường

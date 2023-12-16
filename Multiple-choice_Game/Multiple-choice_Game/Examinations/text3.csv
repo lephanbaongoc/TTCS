@@ -1,0 +1,10 @@
+﻿1;Kí tự nào sau đây KHÔNG được chứa trong định danh?;~chữ cái;^dấu gạch ngang ""-"";~chữ số;~dấu gạch dưới ""_""
+2;Đâu là một định danh KHÔNG hợp lệ?;~giatri1;~_giatri1;~gia_tri_1;^gia tri 1
+3;Loại nào sau đây là loại bộ ký tự được sử dụng trong ngôn ngữ C?;~Các kí tự đặc biệt (@ ! $ #…);~Chữ số;~Chữ cái;^!Tất cả các ý trên
+4;Tất cả các từ khóa trong C đều sử dụng ..............;~chữ cái hoa hoặc chữ cái thường;~chữ cái hoa và chữ cái thường;^chỉ các chữ cái thường;~chỉ các chữ cái hoa
+5;Đâu là một chú thích (comment) ĐÚNG?;~{ comments };~**comments **;~*/comments */;^/* comments */
+6;Ngôn ngữ lập trình C hỗ trợ bao nhiêu kí tự chữ số?;~8;^10;~3;~5
+7;Các kí tự nào được sử dụng để tạo chú thích (comment) trong C?;^//;~#;"~&lt;!--";~!!
+8;Đâu KHÔNG phải là cách khai báo tên biến hợp lệ?;^int $main;~int number;~float rate;~int variable_count;
+9;Điều nào sau đây ĐÚNG với tên biến trong C?;~Tên biến có thể có độ dài bất kỳ;~Có thể chứa các ký tự chữ và số cũng như các ký tự đặc biệt;^Tên biến không được bắt đầu bằng chữ số;~Không có lỗi khi khai báo một biến là một trong các từ khóa
+10;Vấn đề xảy ra khi khai báo biến sau: float 4Room-Hall-Kitchen?;~Ký tự đặc biệt “-”;~Ký tự đặc biệt “?”;~Bắt đầu bằng một số nguyên;^!Tất cả các phương án đều đúng
