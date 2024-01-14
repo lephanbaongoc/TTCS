@@ -7,6 +7,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,32 +46,41 @@ namespace Multiple_choice_Game
         {
             List<string> listAns = new List<string> { ans1, ans2, ans3, ans4 };
             Random rng = new Random();
-            string temp;
 
-            if (listAns[3].Contains("!") == true)//đáp án cuối cung là "Tất cả các ý trên" => chỉ random 3 đáp án phía trên (0,1,2)
+            //A, B, A&B true, A&B false => Chỉ Random A, B (0,1)
+            if (listAns[2].Contains("!") == true && listAns[3].Contains("!") == true)
             {
-                List<int> listNums = Shuffer(0, 3);//list dùng để đảo vị trí (4 lần đảo vị trí)
+                List<int> listNums = Shuffer(0, 2);//list dùng để đảo vị trí (nếu số đầu tiên bốc đc là 2 => đáp án 2 sẽ ở vị trí đầu tiên)
                 foreach (int a in listNums)
                 {
-                    temp = listAns[a];
-                    listAns[a] = listAns[listNums.IndexOf(a)];
-                    listAns[listNums.IndexOf(a)] = temp;
+                    if (a == 0) listAns[listNums.IndexOf(a)] = Answer1;
+                    if (a == 1) listAns[listNums.IndexOf(a)] = Answer2;
                 }
-                //foreach (int a in listNums)
-                //    Console.Write($"{a}\t");
+            }
+
+            //đáp án cuối cùng là "Tất cả các ý trên" => chỉ random 3 đáp án phía trên (0,1,2)
+            else if (listAns[3].Contains("!") == true)
+            {
+                List<int> listNums = Shuffer(0, 3);//list dùng để đảo vị trí (nếu số đầu tiên bốc đc là 2 => đáp án 2 sẽ ở vị trí đầu tiên)
+                foreach (int a in listNums)
+                {
+                    if (a == 0) listAns[listNums.IndexOf(a)] = Answer1;
+                    if (a == 1) listAns[listNums.IndexOf(a)] = Answer2;
+                    if (a == 2) listAns[listNums.IndexOf(a)] = Answer3;
+                }
             }
             else//random cả 4 đáp án
             {
                 List<int> listNums = Shuffer(0, 4);
                 foreach (int a in listNums)
                 {
-                    temp = listAns[a];
-                    listAns[a] = listAns[listNums.IndexOf(a)];
-                    listAns[listNums.IndexOf(a)] = temp;
+                    if (a == 0) listAns[listNums.IndexOf(a)] = Answer1;
+                    if (a == 1) listAns[listNums.IndexOf(a)] = Answer2;
+                    if (a == 2) listAns[listNums.IndexOf(a)] = Answer3;
+                    if (a == 3) listAns[listNums.IndexOf(a)] = Answer4;
                 }
-                //foreach (int a in listNums)
-                //    Console.Write($"{a}\t");
             }
+            //Console.WriteLine("\n");
             Answer1 = listAns[0];
             Answer2 = listAns[1];
             Answer3 = listAns[2];
@@ -115,65 +126,121 @@ namespace Multiple_choice_Game
         }
 
         //Kiểm tra đáp án
-        public void Answer(int id)
+        public void Answer(int n)
         {
-            int n;
-            do
+            switch (n)
             {
-                Console.Write("\nNgười chơi hãy chọn đáp án (1-4): ");
-                n = int.Parse(Console.ReadLine());
-
-                switch (n)
-                {
-                    case 1:
+                case 1:
+                    {
+                        if (True_Ans(Answer1) == true)
                         {
-                            if (True_Ans(Answer1) == true)
-                            {
-                                Console.Write("\t!!!!!CORRECT!!!!!");
-                                Score++;
-                                break;
-                            }
-                            Console.Write($"\t!!!!!WRONG!!!!!");
+                            Console.Write("\t!!!!!CORRECT!!!!!\t");
+                            Score++;
                             break;
                         }
-                    case 2:
+                        Console.Write($"\t!!!!!WRONG!!!!!\t");
+                        break;
+                    }
+                case 2:
+                    {
+                        if (True_Ans(Answer2) == true)
                         {
-                            if (True_Ans(Answer2) == true)
-                            {
-                                Console.Write("\t!!!!!CORRECT!!!!!");
-                                Score++;
-                                break;
-                            }
-                            Console.Write($"\t!!!!!WRONG!!!!!");
+                            Console.Write("\t!!!!!CORRECT!!!!!\t");
+                            Score++;
                             break;
                         }
-                    case 3:
+                        Console.Write($"\t!!!!!WRONG!!!!!\t");
+                        break;
+                    }
+                case 3:
+                    {
+                        if (True_Ans(Answer3) == true)
                         {
-                            if (True_Ans(Answer3) == true)
-                            {
-                                Console.Write("\t!!!!!CORRECT!!!!!");
-                                Score++;
-                                break;
-                            }
-                            Console.Write($"\t!!!!!WRONG!!!!!");
+                            Console.Write("\t!!!!!CORRECT!!!!!\t");
+                            Score++;
                             break;
                         }
-                    case 4:
+                        Console.Write($"\t!!!!!WRONG!!!!!\t");
+                        break;
+                    }
+                case 4:
+                    {
+                        if (True_Ans(Answer4) == true)
                         {
-                            if (True_Ans(Answer4) == true)
-                            {
-                                Console.Write("\t!!!!!CORRECT!!!!!");
-                                Score++;
-                                break;
-                            }
-                            Console.Write($"\t!!!!!WRONG!!!!!");
+                            Console.Write("\t!!!!!CORRECT!!!!!\t");
+                            Score++;
                             break;
                         }
-                }
-            } while (n > 4 || n < 1);
+                        Console.Write($"\t!!!!!WRONG!!!!!\t");
+                        break;
+                    }
+            }
         }
     }
 
+    //Xem lại
+    public class Review
+    {
+        public int Id { get; set; }
+        public string Quest { get; set; }
+        public string Ans1 { get; set; }
+        public string Ans2 { get; set; }
+        public string Ans3 { get; set; }
+        public string Ans4 { get; set; }
+        public int Selected_Ans { get; set; }
+
+        public Review(int id, string quest, string ans1, string ans2, string ans3, string ans4, int selected_Ans)
+        {
+            this.Id = id;
+            this.Quest = quest;
+            this.Ans1 = ans1;
+            this.Ans2 = ans2;
+            this.Ans3 = ans3;
+            this.Ans4 = ans4;
+            this.Selected_Ans = selected_Ans;
+        }
+
+        //Tìm đáp án chính xác
+        public bool True_Ans(string x)
+        {
+            if (x.Contains("^") == true)//Kiểm tra xem trong chuỗi x có chuỗi "^" ko
+            {
+                return true;
+            }
+            else return false;
+        }
+        //Che kí tự đầu của đáp án
+        public string Censor_Ans(string x)
+        {
+            x = x.Replace("~", "\0");
+            x = x.Replace("!", "\0");
+            x = x.Replace("^", "\0");
+            return x;
+        }
+        public void Output()
+        {
+            List<string> listAns = new List<string> { Ans1, Ans2, Ans3, Ans4 };
+            Console.Write($"{Quest}\n");
+            if (True_Ans(listAns[Selected_Ans - 1]) == true)//nếu đáp án bạn chọn là đáp án đúng
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (Selected_Ans - 1 == i) Console.WriteLine($"BẠN ĐÚNG!\t\t{i+1}. {Censor_Ans(listAns[i])}");
+                    else Console.WriteLine($"\t\t\t{i + 1}. {Censor_Ans(listAns[i])}");
+                }
+            }
+            else//là đáp án sai
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (Selected_Ans - 1 == i) Console.WriteLine($"BẠN SAI!\t\t{i + 1}. {Censor_Ans(listAns[i])}");
+                    else if (True_Ans(listAns[i]) == true) Console.WriteLine($"ĐÁP ÁN ĐÚNG LÀ\t\t{i + 1}. {Censor_Ans(listAns[i])}");
+                    else Console.WriteLine($"\t\t\t{i + 1}. {Censor_Ans(listAns[i])}");
+                }
+            }
+
+        }
+    }
 
     internal class Exam
     {
@@ -181,6 +248,7 @@ namespace Multiple_choice_Game
         public static int Final_Score;
         public static string Name = Test.Name_Choosen;
         public string fileName = Name;
+        List<Review> selected_ans;
         public void ReadFile()
         {
             ls = new List<Quest>();
@@ -207,6 +275,9 @@ namespace Multiple_choice_Game
             int s = 0;//tính điểm
             int o = 1;//số thứ tự câu hỏi khi in ra màn hình
 
+            selected_ans = new List<Review>();
+            int a;//đáp án đã chọn
+
             //Hàm dung để Random
             List<int> possible = Enumerable.Range(1, num).ToList();//taoj ra 1 list gồm stt các câu hỏi
             Random rand = new Random();
@@ -217,19 +288,69 @@ namespace Multiple_choice_Game
                 {
                     if (possible[index] == q.Id_Quest)//tìm và in ra câu hỏi
                     {
+
                         //In ra câu hỏi
-                        Console.Write($"\n\n\t{o}. ");
+                        Console.Write($"\tCâu {o}/{ls.Count}. ");
                         o++;
                         q.Output_Quest(q.Id_Quest);
+
                         //Người chơi nhập câu trả lời
-                        q.Answer(q.Id_Quest);
-                        s = s + q.Score;
+                        while (true)
+                        {//hàm kiểm tra xem đầu vào có phải số không
+                            try
+                            {
+                                do
+                                {
+                                    Console.Write("\nNgười chơi hãy chọn đáp án (1-4): ");
+                                    a = int.Parse(Console.ReadLine());
+                                } while (a < 1 || a > 4);
+                                q.Answer(a);
+
+                                s = s + q.Score;
+                                //Thêm vào danh sách để Review
+                                Review r = new Review(q.Id_Quest, q.Question, q.Answer1, q.Answer2, q.Answer3, q.Answer4, a);
+                                selected_ans.Add(r);
+
+                                Console.WriteLine($"\nĐiểm của bạn là: {s}/{ls.Count}");
+                                Console.Write("\n\nPRESS ANY KEY TO CONTINUE!");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+                            }
+                            catch (FormatException)
+                            {   //Khi giá trị nhập không phải số
+                                Console.WriteLine("HÃY NHẬP VÀO MỘT SỐ!!");
+                            }
+                        }
                     }
                 }
                 possible.RemoveAt(index);//xóa số đó khỏi list
             }
             Final_Score = s;
-            Console.Write($"\nĐiểm của bạn là: {s}/{ls.Count}");
+            Console.Write($"\nĐiểm tổng của bạn là: {s}/{ls.Count}");
+        }
+        //Review
+        public void Review_Test()
+        {
+            int o = 1;//số thứ tự
+
+            Console.WriteLine("\nXEM LẠI BÀI KIỂM TRA: \n");
+            foreach (Review r in selected_ans)
+            {
+                Console.Write($"\n\tCâu {o}/{ls.Count}. ");
+                r.Output();
+                o++;
+
+                if (o % 4 == 0)
+                {
+                    Console.Write("\n\nPRESS ANY KEY TO CONTINUE!");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+            Console.Write("\n\nPRESS ANY KEY TO CONTINUE!");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

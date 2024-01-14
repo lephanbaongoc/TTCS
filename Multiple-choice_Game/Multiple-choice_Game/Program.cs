@@ -25,7 +25,8 @@ namespace Multiple_choice_Game
             Console.WriteLine("\n\n\n\t\tBẮT ĐẦU LÀM BÀI KIỂM TRA:\n");
             ex.Output_Quest();
 
-            Console.ReadKey();
+            //Hàm xem lại bài kiểm tra vừa làm
+            ex.Review_Test();
         }
 
         //In ra thông tin của tất cả người chơi đã tham gia
@@ -40,7 +41,6 @@ namespace Multiple_choice_Game
             s.ReadFile();
             s.Output_Player();
 
-            Console.ReadKey();
         }
 
         static void Main(string[] args)
@@ -48,6 +48,7 @@ namespace Multiple_choice_Game
             //Nhập tiếng việt
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
+            Console.WriteLine("\n\nCHÀO MỪNG BẠN ĐẾN VỚI TRÒ CHƠI TRẮC NGHIỆM!!\n\n");
 
             //Chọn bộ đề
             List_Exam();

@@ -76,9 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Examinations\text3.csv" />
-    <None Include="Examinations\text2.csv" />
-    <None Include="Examinations\text1.csv" />
+    <None Include="Examinations\Chủ đề Tiếng anh.csv" />
+    <None Include="Examinations\Chủ đề Toán.csv" />
+    <None Include="Examinations\Chủ đề Công nghệ thông tin.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
