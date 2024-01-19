@@ -80,6 +80,7 @@ namespace Multiple_choice_Game
                         Console.Write("\n\nHỆ THỐNG ĐÃ LƯU THÔNG TIN CỦA BẠN!");
                         string text = Name + ";" + score.ToString() + "\n";
                         File.AppendAllText("..\\..\\Players\\Score.csv", text);
+                        break;
                     }
                     else if (x == 0)
                     {
